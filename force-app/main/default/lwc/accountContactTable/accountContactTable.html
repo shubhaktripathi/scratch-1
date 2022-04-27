@@ -1,0 +1,122 @@
+<template>
+    <lightning-card title="AccountContactTable"
+        class="slds-m-around_medium slds-p-around_medium">
+
+        <lightning-button slot="footer" variant="success" label="Show Related Contacts" title="Show Related Contacts"
+            onclick={handleShowContactsClick} class="slds-m-around_small"> </lightning-button>
+        <lightning-button slot="footer" variant="destructive" label="Delete Selected Contacts"
+            title="Delete Selected Contacts" onclick={handleDeleteSelectedContacts} class="slds-m-around_small">
+        </lightning-button><br /><br />
+        <lightning-button slot="footer" variant="brand" label="Undelete Selected Contacts"
+            title="Undelete Selected Contacts" onclick={handleUndeleteSelectedContacts} class="slds-m-around_small">
+        </lightning-button><br />
+
+        <lightning-input type="text" data-formfield="accountName" placeholder="Enter Account Name"
+            onblur={handleSearchAccName} class="slds-m-around_medium slds-p-around_medium"></lightning-input><br />
+
+        <template if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+        <template if:true={showAccountTable}>
+
+            <table aria-describedby="account-list" class="slds-table  slds-table_bordered ">
+
+
+
+                <!--Header of the table-->
+
+                <thead>
+
+                    <tr class="slds-line-height_reset">
+
+                        <th class="slds-size_1-of-6 " scope="col">
+
+                            <div class="slds-truncate " title="Name">Account Name</div>
+
+                        </th>
+
+                        <th class="slds-size_1-of-6 " scope="col">
+
+                            <div class="slds-truncate " title="Type">Type</div>
+
+                        </th>
+
+                        <th class="slds-size_1-of-6 " scope="col">
+
+                            <div class="slds-truncate " title="Rating">Rating</div>
+
+                        </th>
+
+                        <th class="slds-size_1-of-6 " scope="col">
+
+                            <div class="slds-truncate " title="SLA">SLA</div>
+
+                        </th>
+
+                        <th class="slds-size_1-of-6 " scope="col">
+
+                            <div class="slds-truncate " title="Industry">Industry</div>
+
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <!--Body of the table-->
+
+                <tbody>
+
+                    <template for:each={accountList} for:item="acc">
+
+                        <tr key={acc.id}>
+
+                            <td> {acc.Name} </td>
+
+                            <td> {acc.Type} </td>
+
+                            <td> {acc.Rating} </td>
+
+                            <td> {acc.SLA__c} </td>
+
+                            <td> {acc.Industry} </td>
+
+                        </tr>
+
+                    </template>
+
+
+
+                </tbody>
+
+            </table>
+
+        </template>
+
+        <template if:true={showAccBlankMessage}>
+
+            Message: Account name is Blank....!!!!
+
+        </template> <br />
+
+
+
+        <template if:true={showNoRecordMessage}>
+
+            Message: No Record Found....!!!!
+
+        </template> <br />
+
+
+
+        <lightning-datatable key-field="Id" data={conList} columns={columns} draft-values={draftValues}
+            onrowselection={selectedRecordsHandler} onsave={saveHandler}>
+
+        </lightning-datatable>
+
+
+
+    </lightning-card>
+</template>

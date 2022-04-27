@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Account Seacrch" icon-name="standard:accounts">
+
+        <lightning-input name="Account" type="search" placeholder="Enter Account" onchange={onchangeHandler} value={accountName}>
+        </lightning-input>
+        <template if:true={getAccountWire}>
+            <lightning-datatable data={getAccountWire.data} key-field="id" columns={Acolums} onrowaction={handleRowAction} >
+
+            </lightning-datatable>
+
+        </template>
+        <template if:true={conList}>
+            <lightning-datatable data={conList} key-field="id" columns={Contactcolumns} onrowaction={deleteContact} >
+
+            </lightning-datatable>
+
+        </template>
+
+        <template if:true={DeletedList}>
+            <lightning-datatable data={DeletedList} key-field="id" columns={Contactcolumns} onrowaction={deleteContact} >
+
+            </lightning-datatable>
+
+        </template>
+    </lightning-card>
+</template>

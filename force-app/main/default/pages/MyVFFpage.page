@@ -1,0 +1,32 @@
+<apex:page Controller="MyVFFpage" >
+     <apex:sectionHeader title="My Lead" subtitle="create Lead"/>
+     
+     <apex:form > <apex:pageBlock title="Account">
+          <apex:pageBlockSection title="My Account">
+              <apex:inputField value="{!Acc.name}"/>
+              <apex:inputField value="{!Acc.phone}"/>
+              <apex:inputField value="{!Acc.AccountNumber}"/>                            
+          
+          </apex:pageBlockSection>
+          
+           <apex:pageBlockSection title="My Contact">
+              <apex:inputField value="{!con.lastname}"/>
+              <apex:inputField value="{!con.phone}"/>
+                            
+          </apex:pageBlockSection>
+          
+          
+           <apex:pageBlockSection title="My Opportunity">
+              <apex:inputField value="{!opp.name}"/>
+              <apex:inputField value="{!opp.StageName}"/>
+                          
+          
+          </apex:pageBlockSection>
+          
+          <apex:pageBlockButtons >
+           <apex:commandButton value="save" action="{!save}"/>
+          </apex:pageBlockButtons>
+      
+      </apex:pageBlock>
+      </apex:form>
+</apex:page>

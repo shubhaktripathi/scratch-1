@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Parent Reset Slider">
+        <lightning-button  class="slds-m-around_small" variant="success" label="Reset Slider"  onclick={handleReset}>
+        </lightning-button>
+        <div>
+            Value of Slider is : {Pvalue}
+        </div>
+        <c-slider-child onvalue={onValueChange}>
+
+        </c-slider-child>
+        
+    </lightning-card>
+    
+    
+</template>

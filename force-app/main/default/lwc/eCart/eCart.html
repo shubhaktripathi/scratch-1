@@ -1,0 +1,45 @@
+<template>
+    <lightning-card icon-name="utility:shopping_bag">
+        <div class="slds-text-align_center slds-text-heading_large"> Shopping Cart</div>
+        <!-- <div>
+            <lightning-datatable data={Item.data} columns={columns} key-field="id">
+
+            </lightning-datatable>
+        </div> -->
+
+
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="">Product Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title=""></div>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <template for:each={Item.data} for:item="acc" for:index="index">
+
+                    <tr key={keyIndex}>
+                        <td accesskey={index} id={index}> {acc.Name} </td>
+                        <td>
+                            <lightning-icon icon-name={toggleIcon} access-key={index} id={index}
+                                alternative-text="Click to Call" size="small" title="large size"  onclick={handleClick}>
+                            </lightning-icon>
+                        </td>
+                    </tr>
+
+                </template>
+
+            </tbody>
+
+
+        </table>
+        
+
+    </lightning-card>
+</template>

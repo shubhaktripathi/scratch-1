@@ -1,0 +1,15 @@
+<template>
+
+    <lightning-card title="Conditional Rendering" class="slds-m-around_large" icon-name="custom:custom15">
+        <template if:true={isShow}>
+            Hurray!!! You can see your text
+        </template>
+
+        <lightning-button slot="footer" name="name" label={button} onclick={handleChange}>
+
+        </lightning-button>
+
+
+    </lightning-card>
+
+</template>

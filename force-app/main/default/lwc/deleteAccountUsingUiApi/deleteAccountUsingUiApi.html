@@ -1,0 +1,35 @@
+<template>
+    <lightning-card>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+            <tr>
+                <th>Acccount Name</th>
+                <th>Action</th>
+            </tr>
+            <template for:each={getAcc.data} for:item="acc" for:index="index">
+                <tr key={acc.Id}>
+                    <td>
+                        {acc.Name}
+                    </td>
+
+                    <td>
+                
+                        <div>
+                            <lightning-button-menu>
+
+                                <lightning-menu-item label="Edit" onclick={editRecordPage} data-recid={acc.Id} >
+                                </lightning-menu-item>
+
+
+
+                                <lightning-menu-item label="Delete" onclick={deleteRecord1} data-recid={acc.Id} value={acc.id}>
+                                </lightning-menu-item>
+
+
+                            </lightning-button-menu>
+                        </div>
+                    </td>
+                </tr>
+            </template>
+        </table>
+    </lightning-card>
+</template>

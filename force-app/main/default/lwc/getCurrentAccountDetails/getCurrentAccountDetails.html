@@ -1,0 +1,35 @@
+<template>
+    <lightning-card>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+        <thead>
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Type</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <template if:true={AccountList}>
+           
+            <template for:each={AccountList} for:item="acc" for:index="index"> 
+                <tr key={acc.id}>
+
+                    <td> {index} </td>
+                    <td> {acc.Name} </td>
+                    <td> {acc.Phone} </td>
+                    <td> {acc.Type} </td>
+                    <td> <lightning-button label="SHOW" data-index={index} onclick={handleClick}>
+
+                    </lightning-button></td>
+                </tr>
+
+
+                
+            </template>
+
+
+            </template>
+        </tbody>
+    </table>
+</lightning-card>
+</template>
