@@ -12,9 +12,9 @@ public with sharing class AccountList {
   public static list<Account> getAccount(String accName) {
     try {
       return [
-        SELECT Id, name, industry, type, phone,rating
+        SELECT id, name, industry, type, phone,rating
         FROM Account
-        WHERE Name LIKE :'%' + accName + '%'
+        WHERE Name LIKE : accName + '%'
       ];
     } catch (Exception e) {
       throw new AuraHandledException(e.getMessage());

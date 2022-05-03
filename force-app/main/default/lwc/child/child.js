@@ -6,6 +6,7 @@ export default class Child extends LightningElement {
     }
 
     handleNext() {
+        
         this.dispatchEvent(new CustomEvent('next'));
     }
     

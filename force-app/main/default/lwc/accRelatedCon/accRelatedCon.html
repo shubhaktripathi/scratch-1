@@ -1,0 +1,75 @@
+<template>
+    <lightning-card title='account contact data' icon-name="custom:custom11">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Account Name">Account Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="CheckBox"></div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">Contact Details</div>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <template for:each={accData} for:item="Account" for:index="index">
+                    <tr class="" key={Account.acc.Id}>
+                        <td>
+                            <div class="slds-cell-wrap">{Account.acc.Name}</div>
+                        </td>
+                        <th data-label="Select Account" scope="row">
+                            <lightning-input data-index={index} data-record-id={Account.acc.Id} label="Select Case"
+                                onchange={handleCheckbox} type="checkbox" name="IsSelected" variant="label-hidden"
+                                checked={Account.isSelected}>
+                            </lightning-input>
+                        </th>
+
+
+                        <!-- <td>
+                            <template if:true={accData.IsSelected}></template>
+                                <template for:each={Account.con} for:item="Contact">
+                                    <div key={Contact.Id} class="slds-cell-wrap">
+                                        {Contact.FirstName} {Contact.LastName} {Contact.Phone} {Contact.Email}
+                                    </div>
+
+                            
+                        </template>
+                        </td> -->
+
+                        <td>
+                            <!-- <template if:true={Account.IsSelected}>
+                                <template for:each={Account.con} for:item="Contact">
+                                    <div key={Contact.Id} class="slds-cell-wrap">
+                                        Hi {Contact.FirstName} {Contact.LastName} {Contact.Phone} {Contact.Email}
+                                    </div>
+
+                                </template> 
+
+                            </template>-->
+
+                            {Account.con.Name}
+                        </td>
+
+
+
+                        <!-- <template if:true={accData.IsSelected}></template>
+                        <template for:each={Account.con} for:item="Contact">
+                            <td key={Contact.Id}>
+
+                                <div class="slds-cell-wrap">
+                                    {Contact.FirstName} {Contact.LastName} {Contact.Phone} {Contact.Email}
+                                </div>
+                            </td>
+                        </template> -->
+
+
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

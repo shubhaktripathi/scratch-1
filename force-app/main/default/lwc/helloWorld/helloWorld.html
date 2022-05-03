@@ -1,8 +1,14 @@
 <template>
-  <lightning-card title="HelloWorld" icon-name="custom:custom14">
-    <div class="slds-m-around_medium">
-      <p>Hello, {greeting}!</p>
-      <lightning-input label="Name" value={greeting} onchange={changeHandler}></lightning-input>
-    </div>
-  </lightning-card>
-</template>
+    <lightning-card title="HelloWorld" icon-name="custom:custom14">
+      <div class="slds-m-around_medium">
+        <lightning-input label="Name" value={greeting} onchange={changeHandler}></lightning-input>
+          
+          <lightning-button onclick={showHandler} label={buttonValue} variant="success">
+
+          </lightning-button>
+          <template if:true={showText}>
+            <p> {greeting}</p>
+          </template>
+      </div>
+    </lightning-card>
+  </template>

@@ -37,25 +37,22 @@ export default class CustomLookUpAccount extends LightningElement {
         console.log(this.accountName);
     }
 
-    handleClick(event) {
+    handleClick() {
 
         this.isShowResult = true;
         this.messageResult = false;
     }
 
     handleParentSelection(event) {
+
         this.showSearchedValues = false;
         this.isShowResult = false;
         this.messageResult = false;
-
         //Set the parent calendar id
-        this.accountId = event.currentTarget.dataset.value;
-        console.log("account id is " + this.accountId);
-
+        this.accountId = event.target.dataset.value;
         //Set the parent calendar label
-        this.accountName = event.currentTarget.dataset.label;
-        console.log('account Name::' + this.accountName);
-
+        this.accountName = event.target.dataset.label;
+        console.log('accountId::' + this.accountId);
         const selectedEvent = new CustomEvent('selected', { detail: this.accountId });
         // Dispatches the event.
         this.dispatchEvent(selectedEvent);

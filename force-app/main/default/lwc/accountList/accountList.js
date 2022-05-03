@@ -29,7 +29,7 @@ export default class AccountList extends LightningElement {
     @track deletedContacts;
     @track record = {}
     @track record1 = {};
-    
+
     @track Accountcolumns = [
         { label: 'Name', fieldName: 'Name', type: 'text', iconName: 'standard:account' },
         { label: 'Industry', fieldName: 'Industry', type: 'picklist', iconName: 'standard:store_group', editable: 'true' },
@@ -129,7 +129,6 @@ export default class AccountList extends LightningElement {
 
     handleRowAction1(event) {
         const actionName = event.detail.action.name;
-
         switch (actionName) {
             case 'Edit_contact': this.handleSave1();
                 break;

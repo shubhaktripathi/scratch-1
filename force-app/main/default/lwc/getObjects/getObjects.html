@@ -3,7 +3,7 @@
         <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 ">
             <span>
 
-                <lightning-card title="Get Objects" class="">
+                <lightning-card title="Get Objects">
                     <lightning-combobox label="Select Object" placeholder="Select object" value={value}
                         options={options} onchange={handleChanged}>
                     </lightning-combobox>
@@ -19,38 +19,39 @@
                     <lightning-combobox label="Select Mode" placeholder="Choose Mode" value={mode} options={modeArray}
                         onchange={handleChanged2}>
                     </lightning-combobox>
+                    <div class="slds-scrollable_y" style="height:13rem;width:24rem">
+                        <template if:true={record}>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered "
+                                aria-labelledby="element-with-table-label other-element-with-table-label">
 
-                    <template if:true={record}>
-                        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
-                            aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Action
+                                </th>
 
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Action
-                            </th>
+                                <tbody>
 
-                            <tbody>
+                                    <template for:each={record} for:item="r">
+                                        <tr key={r.Id}>
+                                            <td>
+                                                {r.Name}
+                                            </td>
+                                            <td>
+                                                <lightning-button label="View" variant="brand" onclick={showData}
+                                                    data-value={r.Id}>
 
-                                <template for:each={record} for:item="r">
-                                    <tr key={r.Id}>
-                                        <td>
-                                            {r.Name}
-                                        </td>
-                                        <td>
-                                            <lightning-button label="View" variant="brand" onclick={showData}
-                                                data-value={r.Id} data-sambit={r.Name}>
+                                                </lightning-button>
 
-                                            </lightning-button>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
 
-                                        </td>
-                                    </tr>
-                                </template>
-                            </tbody>
-
-                        </table>
-                    </template>
+                            </table>
+                        </template>
+                    </div>
 
                 </lightning-card>
             </span>
@@ -59,21 +60,21 @@
 
         <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_8-of-12 ">
             <span>
+            <div class="slds-scrollable_y" style="height:29rem;width:51rem">
                 <template if:true={showRecord}>
 
                     <!-- <c-get-object-child rec-id={recordId} obj={str2} mode={mode}> </c-get-object-child> -->
 
                     <lightning-card>
                         <lightning-record-form object-api-name={str2} layout-type="Full" columns="3" mode={mode}
-                        record-id={recordId} >
-                        <!-- <lightning-record-form object-api-name={str2} columns="3" mode={mode} record-id={recordId}
-                           fields={recordData}> -->
+                            record-id={recordId}>
 
                         </lightning-record-form>
 
                     </lightning-card>
 
                 </template>
+            </div>
             </span>
         </div>
 

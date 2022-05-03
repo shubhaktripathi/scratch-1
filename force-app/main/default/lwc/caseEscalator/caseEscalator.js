@@ -32,7 +32,6 @@ export default class CaseEscalator extends LightningElement {
                 .then((result) => {
                     this.caseResult = result;
                     //   console.log(JSON.stringify(this.caseResult));
-
                 }).catch((err) => {
                     this.error = err;
                 });
@@ -44,7 +43,6 @@ export default class CaseEscalator extends LightningElement {
     handleClick(event) {
         this.buttonVar = "destructive";
         this.buttonLab = "Escalate";
-
         if (event.target.label === 'Reopen') {
             this.handleReopen();
         }
@@ -59,7 +57,6 @@ export default class CaseEscalator extends LightningElement {
             .then((result) => {
                 this.caseResult = result;
                 // console.log(JSON.stringify(this.caseResult));
-
             }).catch((err) => {
                 this.error = err;
                 console.log(err);
@@ -69,23 +66,19 @@ export default class CaseEscalator extends LightningElement {
     handleEscalate() {
         this.template.querySelector("c-case-pop-up").isModal();
         console.log("hi");
-
     }
 
     handleOnSave(event) {
 
         this.caseReason = event.detail;
-        console.log(JSON.stringify(this.caseResult));
-        console.log(typeof (this.caseResult));
+        // console.log(JSON.stringify(this.caseResult));
+        // console.log(typeof (this.caseResult));
         escalate({ obj: this.caseResult, reason: this.caseReason })
             // escalate({obj:this.caseValue,reason:this.caseReason})
             .then((result) => {
                 this.caseResult = result;
                 console.log("data");
                 console.log(JSON.stringify(this.caseResult));
-
-
-
             }).catch((err) => {
                 console.log("error");
                 console.log(err);

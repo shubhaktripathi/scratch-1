@@ -44,9 +44,9 @@
             </div>
         </template>
 
+
         <section role="dialog" if:true={isshow} tabindex="-1" class="slds-modal slds-fade-in-open"
             aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
-
             <div class="slds-modal__container">
                 <header class="slds-modal__header">
                     <lightning-button-icon icon-name="utility:close" variant="bare" onclick={handleCloseModal}
@@ -59,10 +59,8 @@
                         <lightning-messages>
                         </lightning-messages>
                         <lightning-input-field field-name="Name">
-
                         </lightning-input-field>
                         <lightning-input-field field-name="Industry">
-
                         </lightning-input-field>
                         <div class="slds-m-top_medium">
                             <lightning-button class="slds-m-top_small" label="Cancel" onclick={handleReset}>
@@ -70,9 +68,7 @@
                             <lightning-button class="slds-m-top_small" variant="brand" type="submit"
                                 label="Save Record"></lightning-button>
                         </div>
-
                     </lightning-record-edit-form>
-
                 </div>
                 <!--footer class="slds-modal__footer">
                 <button class="slds-button slds-button_neutral">close</button>

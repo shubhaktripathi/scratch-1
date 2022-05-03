@@ -6,8 +6,8 @@ import COUNTING_UPDATED_CHANNEL from '@salesforce/messageChannel/coutning_Update
 export default class PubLwc extends LightningElement {
     @wire(MessageContext)
     messageContext;
-    handleIncrement() {
 
+    handleIncrement() {
         const payload = {
             Operator: 'add',
             Constant: 1
@@ -20,7 +20,6 @@ export default class PubLwc extends LightningElement {
         const payload = {
             Operator: 'substract',
             Constant: 1
-
         }
         publish(this.messageContext, COUNTING_UPDATED_CHANNEL, payload);
 
@@ -29,7 +28,6 @@ export default class PubLwc extends LightningElement {
         const payload = {
             Operator: 'multiply',
             Constant: 5
-
         }
         publish(this.messageContext, COUNTING_UPDATED_CHANNEL, payload);
 

@@ -26,16 +26,11 @@ export default class GetObjects extends LightningElement {
     str1;
     str2;
     mode;
-
     // @wire(getRecordUi, { recordIds: '$recordId', layoutTypes: 'Full', modes: 'View' })
     // accountRecordUi({ data, error }) {
     //     if (data) {
 
-    //         // this.recordData=data;
-    //         // console.log(this.recordData);
-    //         // this.recordData = data.records[this.recordId].fields.Name.value;
-    //          this.recordData = data.records[this.recordId].fields;
-    //          console.log(this.recordData);
+    //         //  this.recordData = data.records[this.recordId].fields.Name.value;
     //         // this.recordData = data.records[this.recordId].fields;
     //         this.recordData = Object.keys(data.records[this.recordId].fields);
     //         //   console.log(this.recordData + typeof(this.recordData));
@@ -119,7 +114,6 @@ export default class GetObjects extends LightningElement {
             this.optionArray = this.stdObjectArray;
         }
     }
-
     handleChanged1(event) {
         this.value1 = event.detail.value;
         console.log(typeof (this.value1) + '  ' + this.value1);
@@ -147,15 +141,9 @@ export default class GetObjects extends LightningElement {
 
     }
 
-    handleChanged2(event) {
-        this.mode = event.detail.value;
-        console.log(this.mode);
-    }
-
     showData(event) {
 
         this.recordId = event.currentTarget.dataset.value;
-        //this.recordName= event.currentTarget.dataset.sambit;
         this.showRecord = true;
         console.log(this.recordId);
 
@@ -163,5 +151,8 @@ export default class GetObjects extends LightningElement {
 
     }
 
-    
+    handleChanged2(event) {
+        this.mode = event.detail.value;
+        console.log(this.mode);
+    }
 }

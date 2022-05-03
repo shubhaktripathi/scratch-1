@@ -1,4 +1,7 @@
 // Setting up the Request URL
+//Creating your Own API
+//system.debug(System.Url.getSalesforceBaseUrl());
+//system.debug(System.UserInfo.getSessionId().substring(15));
 @RestResource(urlMapping='/ContactAPI/*')
 global with sharing class ContactResource {
 
@@ -10,7 +13,9 @@ global with sharing class ContactResource {
         // Getting the request URI
         String contactRequestURI = contactRequest.requestURI;
         // Getting the limit from the request URI
-        Integer contactLimit = Integer.valueOf(contactRequestURI.substring(contactRequestURI.lastIndexOf('/') + 1));
+         Integer contactLimit = Integer.valueOf(contactRequestURI.substring(contactRequestURI.lastIndexOf('/') + 1));
+       //Integer contactLimit = valueOf(contactRequestURI.slice(contactRequestURI.lastIndexOf('/') + 1));
+
         // Querying contacts
         List<Contact> contactList = [SELECT Id, Name FROM Contact LIMIT :contactLimit];
         // Returning the contacts in the response

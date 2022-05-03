@@ -1,8 +1,6 @@
 <template>
     <lightning-card title="CaseEscalator" class="slds-m-around_medium slds-p-around_medium">
-
         <lightning-input label="Enter case" value={caseValue} onchange={onChangehandle}>
-
         </lightning-input>
         <lightning-layout multiple-rows="true">
             <lightning-layout-item size="6">
@@ -12,22 +10,16 @@
                         </lightning-button>
                         <template if:true={isSpin}>
                             <lightning-spinner alternative-text="Loading" size="small">
-
                             </lightning-spinner>
-
                         </template>
                     </lightning-layout-item>
                     <lightning-layout-item class="slds-m-life_small slds-p-around_medium">
-
                         <template if:true={caseResult}>
                             <lightning-button variant={buttonVar} label={buttonLab} onclick={handleClick}>
                             </lightning-button>
                         </template>
-
-
                     </lightning-layout-item>
                 </lightning-layout>
-
             </lightning-layout-item>
         </lightning-layout>
 
@@ -35,6 +27,7 @@
             <lightning-datatable columns={columns} key-field="caseResult.id" data={caseResult}>
             </lightning-datatable>
         </template>
+        
         <c-case-pop-up onescevent={handleOnSave}></c-case-pop-up>
     </lightning-card>
 </template>

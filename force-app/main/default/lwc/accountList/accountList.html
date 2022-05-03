@@ -1,12 +1,14 @@
 <template>
     <div class="slds-card slds-has-bottom-magnet">
-        <lightning-card title="AccountList Search Account Contact and delete" icon-name="standard:account" class=" slds-card slds-has-bottom-magnet">
+        <lightning-card title="AccountList Search Account Contact and delete" icon-name="standard:account"
+            class=" slds-card slds-has-bottom-magnet">
             <lightning-input name="account" onchange={handleChange} value={accountSearch} placeholder="Enter account"
                 class="slds-m-around_medium">
             </lightning-input>
             <lightning-button name="search" variant="brand" label="search" onclick={handleAccount}
                 class="slds-m-around_medium">
             </lightning-button>
+
             <div class="slds-card slds-has-top-magnet">
                 <template if:true={accList}>
                     <div class="slds-m-around_medium sldsp-around_medium">
@@ -18,13 +20,12 @@
             </div>
         </lightning-card>
     </div>
+
     <div class="slds-card slds-has-top-magnet">
         <div>
-
             <template if:true={conList}>
                 <lightning-card title=" Related Contacts " icon-name="standard:contact"
                     class=" slds-card slds-has-top-magnet">
-
                     <lightning-datatable class="db" key-field="Id" data={conList} onrowselection={handleContactAction}
                         draft-values={drafdtedContact} columns={Contactcolumns} onrowaction={handleRowAction1}
                         onsave={handleSave}>
@@ -35,7 +36,6 @@
     </div>
 
     <div class="slds-card slds-has-top-magnet">
-
         <template if:true={deletedContacts}>
             <lightning-card title=" Deleted Contacts " icon-name="standard:contact"
                 class=" slds-card slds-has-top-magnet">
